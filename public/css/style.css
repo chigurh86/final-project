@@ -1,0 +1,32 @@
+.fleft{
+    float: left;
+}
+.beerImage{
+  width: 100px;
+  height: 100px;
+}
+.beerDiv{
+  width: 32.60%;
+  height: 20%;
+  margin: 0px 5px 0px 5px;
+  float: left;
+  padding: 25px;
+}
+.navbar{
+  height: 120px;
+}
+
+.theNav{
+margin-top: 35px;
+}
+.theSearch{
+  margin-top: 35px;
+}
+.center{
+  margin: 0 auto;
+  text-align: center;
+}
+#username , #email, #photo{
+  height: 45px;
+  margin-bottom: 15px;
+}
