@@ -3,7 +3,6 @@ $(document).ready(function() {
         event.preventDefault();
         alert("Hello! I am an alert box!!");
 
-
         var personObject = {
             username: $('#username').val(),
             email: $('#email').val(),

@@ -13,21 +13,33 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(`${__dirname}/public`));
 
 
-var connection;
-var JAWSDB_URL = ""
-
-if (process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-    connection = mysql.createConnection({
+ // connection;
+// var JAWSDB_URL = ""
+//
+// if (process.env.JAWSDB_URL) {
+//     connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+var connection = mysql.createConnection({
         host: "localhost",
         port: 3000,
         user: "root",
         password: "",
         database: "drinkdabeer_db"
     });
-};
+// };
+// exports
+module.exports = connection;
+// module.exports.client;
 
+connection.connect(function(err) {
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+
+    console.log("connected as id " + connection.threadId);
+
+});
 // ======================================================== //
 // app path //
 // ========================================================//

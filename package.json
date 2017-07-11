@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/chigurh86/final-project/issues"
   },
-  "homepage": "https://github.com/chigurh86/final-project#readme"
+  "homepage": "https://github.com/chigurh86/final-project#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0",
+    "path": "^0.12.7"
+  }
 }

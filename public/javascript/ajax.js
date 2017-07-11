@@ -1,85 +1,60 @@
 // post from DOM
 $(document).ready(function() {
-
-  $('#submitPerson').on('click', function() {
-      event.preventDefault();
-      var personObject = {
-          username: $('#username').val(),
-      };
-
-      $.post("/api/search", personObject)
-          .done(function(data) {
-              console.log(data);
-          })
-          .fail(function(error) {
-              console.log("THIS FAILED");
-          });
-
-      $('#username').val("");
-  });
-
-
-
-
     $('#beer_search').on('click', function() {
       alert("Got to beer search");
         event.preventDefault();
-        var name = $('#theBeer').val();
-        $.post("/api/userdata", name)
-            .done(function(data) {
-                console.log("The Data "+ data);
-            })
-            .fail(function(error) {
-                console.log("THIS FAILED");
-            });
-        $('#theBeer').val("");
+
+        var clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
+        var clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
+
+        var query = "q="
+        var url = "https://api.untappd.com/v4/";
+        var searchBeer = "search/beer?";
+        var baseUrl = "https://api.untappd.com/v4/";
+        var thebeer = $('#theBeer').val();
+          $.ajax({url: baseUrl + searchBeer + query + thebeer + clientId + clientSecret, success: function(result){
+              // console.log("ajax " + JSON.stringify(result))
+              function displayBeers(){
+                $('#display').empty();
+                // console.log(JSON.stringify(result.response.beers.items));
+                  // console.log("the count " + result.response.beers);
+                    for (var i = 0; i < result.response.beers.count; i++) {
+                      console.log("the name" + result.response.beers.items[i].beer.beer_name)
+                      var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
+                      var beerCaption = $("<div class='caption'>");
+                      var beerImage = $("<img>");
+                      beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);
+                      beerImage.attr("src", result.response.beers.items[i].beer.beer_label);
+                      beerImage.addClass('beerImage');
+                      var name = result.response.beers.items[i].beer.beer_name;
+                      var desc = result.response.beers.items[i].beer.beer_description;
+                      var abv = result.response.beers.items[i].beer.beer_abv;
+                      var beerStyle = result.response.beers.items[i].beer.beer_style;
+                      // // display to DOM
+                      beerCaption.append("<h3>" + name + "</h3>");
+                      beerCaption.append("<div class ='descDiv'>" + "<p class='productDescription'>" + desc + "</p>" + "</div");
+                      beerCaption.append("<div class ='abvDiv'>" + "<p class='abv'>" + "ABV: " + abv + "</p>" + "</div");
+                      beerCaption.append("<div class ='beerStyleDiv'>" + "<p class='beerStyle'>" + "Beer Style: " + beerStyle + "</p>" + "</div");
+                      // // building thumbnail
+                      beerDiv.append(beerImage);
+                      beerDiv.append(beerCaption);
+                      $('#display').append(beerDiv);
+                    }
+
+                }
+                displayBeers();
+          }});
+
     });
 
+
+// append beers to DOM
+
+
+
+  // $( "#beer_search" ).click(function() {
+  //   event.preventDefault();
+  //   displayBeers();
+  //
+  //   });
 });
-
-
-function displayBeers(){
-
-    $.get("/api/search", function(response) {
-    // console.log("the response" + JSON.stringify(response))
-    console.log(response.data[0].name);
-      // $('#display').empty();
-      for (var i = 0; i < 1; i++) {
-        console.log("the name" + response.data[0].name)
-        var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
-        var beerCaption = $("<div>");
-        var beerImage = $("<img>");
-        beerImage.attr("alt", response.data[0].name);
-        beerImage.attr("src", response.data[0].labels.large);
-        beerImage.addClass('beerImage');
-        var name = response.data[0].name;
-        var desc = response.data[0].description;
-        var abv = response.data[0].abv;
-        var organic = response.data[0].isOrganic;
-        // display to DOM
-        // building caption
-        beerCaption.append("<h3>" + name + "</h3>");
-        beerCaption.append("<div class ='desc'>" + "<p>" + desc + "</p>" + "</div");
-        beerCaption.append("<div class ='abv'>" + "<p>" + "ABV: " + abv + "</p>" + "</div");
-          if (organic === "N") {
-            organic = "No"
-          }
-          else if (organic === "Y"){
-            organic = "Yes"
-          }
-        beerCaption.append("<div class ='abv'>" + "<p>" + "Organic: " + organic + "</p>" + "</div");
-
-        // building thumbnail
-        beerDiv.append(beerImage);
-        beerDiv.append(beerCaption);
-        $('#display').append(beerDiv);
-      }
-    });
-  }
-
-
-  $( "#beer_search" ).click(function() {
-    event.preventDefault();
-    displayBeers();
-
-    });

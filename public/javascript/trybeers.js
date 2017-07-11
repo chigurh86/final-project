@@ -1,42 +1,40 @@
-function displayBeers(){
-  $.get("/api/search", function(response) {
-    $('#displayArea').empty();
-    for (var i = 0; i < 3; i++) {
-      console.log("the name" + response.data[0].name)
-      var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
-      var beerCaption = $("<div>");
-      var beerImage = $("<img>");
-      var drinkBtn = $("<button class='btn-success'>"+"Drink it"+"</button>");
-      var passBtn = $("<button class='btn-default'>"+"Eww Gross"+"</button>");
-      drinkBtn.attr("data-button", response.data[0].name);
-      beerImage.attr("alt", response.data[0].name);
-      beerImage.attr("src", response.data[0].labels.large);
-      beerImage.addClass('beerImage');
-      var name = response.data[0].name;
-      var desc = response.data[0].description;
-      var abv = response.data[0].abv;
-      var organic = response.data[0].isOrganic;
-      // display to DOM
-      // building caption
-      beerCaption.append("<h3>" + name + "</h3>");
-      beerCaption.append("<div class ='desc'>" + "<p>" + desc + "</p>" + "</div");
-      beerCaption.append("<div class ='abv'>" + "<p>" + "ABV: " + abv + "</p>" + "</div");
-        if (organic === "N") {
-          organic = "No"
-        }
-        else if (organic === "Y"){
-          organic = "Yes"
-        }
-      beerCaption.append("<div class ='abv'>" + "<p>" + "Organic: " + organic + "</p>" + "</div");
 
-      // building thumbnail
-      beerDiv.append(beerImage);
-      beerDiv.append(beerCaption);
-      beerDiv.append(drinkBtn);
-      beerDiv.append(passBtn);
-      $('#displayArea').append(beerDiv);
-    }
-  });
-  }
+      var clientId = "client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
+      var clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
 
-    displayBeers();
+      var query = "q="
+      var url = "https://api.untappd.com/v4/";
+      var searchBeer = "beer/trending?";
+      var baseUrl = "https://api.untappd.com/v4/";
+      var thebeer = $('#theBeer').val();
+        $.ajax({url: baseUrl + searchBeer + clientId + clientSecret, success: function(result){
+              $('#displayArea').empty();
+              // console.log(JSON.stringify(result.response.macro.items));
+                  for (var i = 0; i < 3; i++) {
+                    // console.log("the name" + result.response.macro.items[i].beer.beer_name)
+                    var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
+                    var beerCaption = $("<div class='caption'>");
+                    var beerImage = $("<img>");
+                    var drinkBtn = $("<button class='btn-success'>"+"Drink it"+"</button>");
+                    drinkBtn.attr("data-button", result.response.macro.items[i].beer.beer_name);
+                    var passBtn = $("<button class='btn-default'>"+"Eww Gross"+"</button>");
+                    beerImage.attr("alt", result.response.macro.items[i].beer.beer_name);
+                    beerImage.attr("src", result.response.macro.items[i].beer.beer_label);
+                    beerImage.addClass('beerImage');
+                    var name = result.response.macro.items[i].beer.beer_name;
+                    // var desc = result.response.macro.items[i].beer.beer_description;
+                    var abv = result.response.macro.items[i].beer.beer_abv;
+                    var beerStyle = result.response.macro.items[i].beer.beer_style;
+                  //   // // display to DOM
+                    beerCaption.append("<h3>" + name + "</h3>");
+                    // beerCaption.append("<div class ='descDiv'>" + "<p class='productDescription'>" + desc + "</p>" + "</div");
+                    beerCaption.append("<div class ='abvDiv'>" + "<p class='abv'>" + "ABV: " + abv + "</p>" + "</div");
+                    beerCaption.append("<div class ='beerStyleDiv'>" + "<p class='beerStyle'>" + "Beer Style: " + beerStyle + "</p>" + "</div");
+                  //   // // building thumbnail
+                    beerDiv.append(beerImage);
+                    beerDiv.append(beerCaption);
+                    beerDiv.append(drinkBtn);
+                    beerDiv.append(passBtn);
+                    $('#displayArea').append(beerDiv);
+                  }
+        }});
