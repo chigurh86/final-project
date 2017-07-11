@@ -1,12 +1,9 @@
 // post from DOM
 $(document).ready(function() {
     $('#beer_search').on('click', function() {
-      alert("Got to beer search");
         event.preventDefault();
-
         var clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
         var clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
-
         var query = "q="
         var url = "https://api.untappd.com/v4/";
         var searchBeer = "search/beer?";

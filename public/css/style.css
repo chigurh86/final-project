@@ -6,9 +6,10 @@
   height: 100px;
 }
 .beerDiv{
-  width: 32.60%;
+  width: 33%;
   display: inline-block;
   padding: 25px;
+  margin-right: 3.87px;
 
 
 }
@@ -24,10 +25,19 @@
 }
 .navbar{
   height: 120px;
+  background-color: #030D40;
+  color: white;
 }
-
+ul li a {
+  color: white !important;
+}
+.active a {
+  color: #030D40 !important;
+}
 .theNav{
 margin-top: 35px;
+color: white !important;
+
 }
 .theSearch{
   margin-top: 35px;
@@ -41,11 +51,11 @@ margin-top: 35px;
   margin-bottom: 15px;
 }
 footer{
-  background-color: #24292E;
+  background-color: #030D40;
   padding: 25px;
   color: white;
-  position: absolute;
-  bottom: 0px;
+  /*position: absolute;*/
+  /*bottom: 0px;*/
   width: 100%;
   height: 150px;
   text-align: center;
@@ -59,4 +69,32 @@ footer ul li{
 }
 footer ul {
   margin-left:-35px;
+}
+.jumbotron{
+  background-color: #E7E7E7;
+  color: black;
+}
+.push{
+  display: block;
+}
+.container-fluid{
+  min-height: 65vh;
+}
+.displayDiv{
+  margin: 0 auto;
+}
+.blurbCaption{
+  margin: 0 auto;
+}
+.nolink{
+  background-color: #030D40;
+  color: white;
+  text-decoration: none !important;
+
+}
+.nolink h1 a{
+  text-decoration: none;
+}
+h4{
+  padding-bottom: 0px !important;
 }

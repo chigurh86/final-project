@@ -13,8 +13,6 @@ module.exports = function(app) {
 
 // post users info from database
     app.post("/api/userdata", function(req, res) {
-      const { name } = req.body;
-      console.log("daInfo "+ name);
       const { username, email, photo } = req.body;
       console.log("daInfo "+ username, email, photo);
       var newPerson = {
@@ -23,7 +21,8 @@ module.exports = function(app) {
             photo: photo,
         }
         connection.query("INSERT INTO users SET ?", newPerson, function(err, res) {
-              res.status(200).json({ success: true });
+            console.log("Heres the response" + res)
+              // res.status(200).json({ success: true });
           });
       });
 // get users info from database
@@ -33,7 +32,7 @@ module.exports = function(app) {
             throw err;
         }
         else {
-            console.log("here: "+ data);
+            console.log(data);
         }
 
         res.json(data);

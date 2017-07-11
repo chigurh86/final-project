@@ -21,7 +21,7 @@ app.use(express.static(`${__dirname}/public`));
 // } else {
 var connection = mysql.createConnection({
         host: "localhost",
-        port: 3000,
+        port: 3306,
         user: "root",
         password: "",
         database: "drinkdabeer_db"
@@ -33,11 +33,11 @@ module.exports = connection;
 
 connection.connect(function(err) {
     if (err) {
-        console.error("error connecting: " + err.stack);
+        console.error("Tony you had connecting: " + err.stack);
         return;
     }
 
-    console.log("connected as id " + connection.threadId);
+    console.log("Tony you connected as id " + connection.threadId);
 
 });
 // ======================================================== //
