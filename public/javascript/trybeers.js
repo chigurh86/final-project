@@ -7,12 +7,21 @@
       var searchBeer = "beer/trending?";
       var baseUrl = "https://api.untappd.com/v4/";
       var thebeer = $('#theBeer').val();
-      var random = 0;
+
+
         $.ajax({url: baseUrl + searchBeer + clientId + clientSecret, success: function(result){
               $('#displayArea').empty();
-              // console.log(JSON.stringify(result.response));
-              // Math.floor((Math.random() * 10) + 1);
-                  for (var i = random; i < 3; i++) {
+              // console.log(JSON.stringify(result.response.macro.count));
+              var theCount = result.response.macro.count;
+              var rando = Math.floor((Math.random() * theCount) + 1);;
+              console.log("rondom number "+rando);
+              var newCount = rando + 3;
+              if (newCount > theCount) {
+                newCount = rando;
+                rando = rando - 3;
+                console.log("it went over "+newCount);
+              }
+                  for (var i = rando; i < newCount; i++) {
                     // console.log("the name" + result.response.macro.items[i].beer.beer_name)
                     var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
                     var beerCaption = $("<div class='caption'>");

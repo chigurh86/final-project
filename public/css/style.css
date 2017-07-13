@@ -1,3 +1,7 @@
+h1{
+  font-family: 'Shrikhand', cursive;
+  color: #030D40 !important;
+}
 .fleft{
     float: left;
 }
@@ -6,11 +10,12 @@
   height: 100px;
 }
 .beerDiv{
-  width: 33%;
+  width: 32.5%;
   /*display: inline-block;*/
   float:left;
   padding: 25px;
-  margin-right: 3.87px;
+  margin-right: 6px;
+  margin-left: 5px;
   min-height: 500px;
   max-height: 500px;
 
@@ -104,4 +109,17 @@ footer ul {
 }
 h4{
   padding-bottom: 0px !important;
+}
+
+.padded{
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+.shorter{
+  width: 85%;
+  float: left;
+}
+
+.paddingBottom{
+  padding-bottom: 130px;
 }

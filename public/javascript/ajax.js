@@ -9,6 +9,7 @@ $(document).ready(function() {
         var searchBeer = "search/beer?";
         var baseUrl = "https://api.untappd.com/v4/";
         var thebeer = $('.theBeer').val();
+        console.log("Here"+thebeer)
           $.ajax({url: baseUrl + searchBeer + query + thebeer + clientId + clientSecret, success: function(result){
               // console.log("ajax " + JSON.stringify(result))
               function displayBeers(){
