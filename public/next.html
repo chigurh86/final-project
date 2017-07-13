@@ -40,9 +40,9 @@
           </ul>
           <form class="navbar-form navbar-right moveDown absolute theSearch">
             <!-- <div class="form-group"> -->
-              <input id="theBeer" name="theBeer" class="form-control" placeholder="Find Beers"/>
+              <input name="theBeer" class="theBeer form-control" placeholder="Find Beers"/>
             <!-- </div> -->
-            <button type="submit" name="submit" id="beer_search" class="btn btn-default">Submit</button>
+            <button type="submit" name="submit" class="beer_search btn btn-default">Submit</button>
           </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -52,6 +52,12 @@
             <div class="jumbotron">
               <h1>Search for a beer!</h1>
               <p>Then save it to your profile!</p>
+                <form class="">
+                  <!-- <div class="form-group"> -->
+                    <input name="theBeer" class="theBeer form-control" placeholder="Find Beers"/>
+                  <!-- </div> -->
+                  <button type="submit" name="submit" class="beer_search btn btn-default pull-right">Submit</button>
+                </form>
             </div>
               <div class= "row panel" id="display"></div>
         </div>

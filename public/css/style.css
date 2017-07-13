@@ -7,15 +7,22 @@
 }
 .beerDiv{
   width: 33%;
-  display: inline-block;
+  /*display: inline-block;*/
+  float:left;
   padding: 25px;
   margin-right: 3.87px;
+  min-height: 500px;
+  max-height: 500px;
 
-
+}
+.beerDiv:nth-child(4){
+  clear: both;
 }
 .productDescription{
   font-size: 1em !important;
-  /*background-color: pink;*/
+  overflow-y: scroll;
+  height: 100px;
+  border: none;
 }
 .abv{
   font-size: 1em !important;

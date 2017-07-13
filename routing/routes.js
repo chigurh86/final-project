@@ -13,17 +13,17 @@ module.exports = function(app) {
 
 // post users info from database
     app.post("/api/userdata", function(req, res) {
-      const { username, email, photo } = req.body;
-      console.log("daInfo "+ username, email, photo);
+      const { username, email, image } = req.body;
+      console.log("daInfo "+ username, email, image);
       var newPerson = {
             username: username,
             email: email,
-            photo: photo,
+            image: image,
         }
-        connection.query("INSERT INTO users SET ?", newPerson, function(err, res) {
-            console.log("Heres the response" + res)
-              // res.status(200).json({ success: true });
-          });
+
+        connection.query("INSERT INTO users (username, email, image) VALUES (?, ?, ?)", [newPerson.username, newPerson.email, newPerson.image], function(err, res) {
+          if(err) throw err;
+        });
       });
 // get users info from database
     app.get("/api/userdata", function(req, res) {

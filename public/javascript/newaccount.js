@@ -1,12 +1,12 @@
 $(document).ready(function() {
     $('#submitPerson').on('click', function() {
         event.preventDefault();
-        alert("Hello! I am an alert box!!");
+        alert("Your account has been created");
 
         var personObject = {
             username: $('#username').val(),
             email: $('#email').val(),
-            photo: $('#photo').val(),
+            image: $('#image').val(),
         };
 
         $.post("/api/userdata", personObject)
@@ -19,6 +19,6 @@ $(document).ready(function() {
 
         $('#username').val("");
         $('#email').val("");
-        $('#photo').val("");
+        $('#image').val("");
     });
 });
