@@ -23,7 +23,7 @@
               }
                   for (var i = rando; i < newCount; i++) {
                     // console.log("the name" + result.response.macro.items[i].beer.beer_name)
-                    var beerDiv = $("<div class ='productHolder thumbnail hero-feature beerDiv'>");
+                    var beerDiv = $("<div id='beerTime'  class ='productHolder thumbnail hero-feature beerDiv'>");
                     var beerCaption = $("<div class='caption'>");
                     var beerImage = $("<img>");
                     var drinkBtn = $("<button class='btn-success'>"+"Drink it"+"</button>");
@@ -49,3 +49,6 @@
                     $('#displayArea').append(beerDiv);
                   }
         }});
+        $('.btn-default').on('click', function(){
+          $("#beerTime").html("");
+        });

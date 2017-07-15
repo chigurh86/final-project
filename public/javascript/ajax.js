@@ -42,17 +42,5 @@ $(document).ready(function() {
                 }
                 displayBeers();
           }});
-
     });
-
-
-// append beers to DOM
-
-
-
-  // $( "#beer_search" ).click(function() {
-  //   event.preventDefault();
-  //   displayBeers();
-  //
-  //   });
 });

@@ -2,6 +2,10 @@ h1{
   font-family: 'Shrikhand', cursive;
   color: #030D40 !important;
 }
+ h2, h4{
+   font-family: 'Shrikhand', cursive;
+   letter-spacing: 2px;
+ }
 .fleft{
     float: left;
 }
@@ -11,7 +15,6 @@ h1{
 }
 .beerDiv{
   width: 32.5%;
-  /*display: inline-block;*/
   float:left;
   padding: 25px;
   margin-right: 6px;
@@ -19,6 +22,15 @@ h1{
   min-height: 500px;
   max-height: 500px;
 
+}
+.brewDiv{
+  width: 32.5%;
+  float:left;
+  padding: 25px;
+  margin-right: 6px;
+  margin-left: 5px;
+  min-height: 500px;
+  max-height: 500px;
 }
 .beerDiv:nth-child(4){
   clear: both;
@@ -116,7 +128,7 @@ h4{
   padding-top: 5%;
 }
 .shorter{
-  width: 85%;
+  width: 88%;
   float: left;
 }
 
