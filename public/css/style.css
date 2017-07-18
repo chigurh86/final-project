@@ -2,10 +2,22 @@ h1{
   font-family: 'Shrikhand', cursive;
   color: #030D40 !important;
 }
- h2, h4{
+ h2 {
    font-family: 'Shrikhand', cursive;
    letter-spacing: 2px;
+   font-size: 35px;
+   margin-bottom: 15px !important;
  }
+ h4{
+   font-size: 30px;
+   margin-top: 0px !important;
+ }
+.personName{
+    font-size: 30px;
+    width: 45px;
+    font-weight: bold;
+    margin-left: 9%;
+}
 .fleft{
     float: left;
 }
@@ -14,14 +26,14 @@ h1{
   height: 100px;
 }
 .beerDiv{
-  width: 32.5%;
+  width: 431px;
   float:left;
   padding: 25px;
   margin-right: 6px;
   margin-left: 5px;
   min-height: 500px;
   max-height: 500px;
-
+  border: solid 3px #030D40;
 }
 .brewDiv{
   width: 32.5%;
@@ -31,7 +43,9 @@ h1{
   margin-left: 5px;
   min-height: 500px;
   max-height: 500px;
+  border: solid 3px #030D40;
 }
+
 .beerDiv:nth-child(4){
   clear: both;
 }
@@ -78,8 +92,6 @@ footer{
   background-color: #030D40;
   padding: 25px;
   color: white;
-  /*position: absolute;*/
-  /*bottom: 0px;*/
   width: 100%;
   height: 150px;
   text-align: center;
@@ -114,6 +126,7 @@ footer ul {
   background-color: #030D40;
   color: white;
   text-decoration: none !important;
+  height: 800px;
 
 }
 .nolink h1 a{
@@ -134,4 +147,56 @@ h4{
 
 .paddingBottom{
   padding-bottom: 130px;
+}
+.moveOver{
+  margin-left: 40%;
+}
+/* Iphone 5*/
+@media (max-width:375px) and (min-width:320px) {
+  .beerDiv{
+    width: 98%;
+    float:left;
+    padding: 25px;
+    margin-right: 6px;
+    margin-left: 5px;
+    min-height: 500px;
+    max-height: 500px;
+    border: solid 3px #030D40;
+  }
+  .beer_search{
+    margin-top: 5px;
+    margin-right: 0px;
+  }
+  .theBeer{
+    width: 100%;
+  }
+  .theLogo{
+    width: 60px;
+  }
+  .navbar-brand{
+    width: 20%;
+  }
+  .navbar-default{
+    height: 80px;
+  }
+  ul li a {
+    color: #030D40 !important;
+    background-color: white;
+    z-index: 1000 !important;
+    border: solid 1px #030D40;
+
+  }
+  body > div.container-fluid > div.col-md-12 > div.jumbotron.paddingBottom{
+    margin-top: 4%;
+  }
+  .navbar-collapse collapse in{
+    border-top: solid #061146 10px;
+  }
+  div#bs-example-navbar-collapse-1.navbar-collapse.collapse.in{
+    border-top: solid #061146 10px;
+    margin-top: 17px;
+  }
+  .theNav{
+    margin-top: 0px !important;
+  }
 }

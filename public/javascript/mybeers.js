@@ -5,7 +5,7 @@ $.get("/api/userdata", function(response) {
   profileImage.attr("src", response[0].image);
   profileImage.attr("alt", response[0].username);
   var name = response[0].username;
-  blurbCaption.append("<h3>" + name + "</h3>");
+  blurbCaption.append("<span class='personName'>" + name + "</span>");
   blurbCaption.append(profileImage);
   profileDiv.append(blurbCaption);
   $('.displayDiv').append(profileDiv);
@@ -27,9 +27,9 @@ $.get("/api/beers", function(response) {
     var thebeer = response[i].beername;
     tableDiv.append("<p>" + thebeer + "</p>");
       $.ajax({url: baseUrl + searchBeer + query + thebeer + clientId + clientSecret, success: function(result){
-          var beerStyle = result.response.beers.items[i].beer.beer_style;
-          var brewery = result.response.beers.items[i].brewery.brewery_name;
-          console.log("result "+JSON.stringify(result));
+          var beerStyle = result.response.beers.items[0].beer.beer_style;
+          var brewery = result.response.beers.items[0].brewery.brewery_name;
+          // console.log("result "+JSON.stringify(result));
           tableDiv2.append("<p>" + beerStyle + "</p>");
           tableDiv3.append("<p>" + brewery + "</p>");
       }});

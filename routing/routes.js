@@ -40,7 +40,7 @@ module.exports = function(app) {
         });
 // get users info from database
     app.get("/api/userdata", function(req, res) {
-    connection.query("SELECT * FROM users WHERE username=?", ["Anton Chigurh"], function(err, data) {
+    connection.query("SELECT * FROM users WHERE username=?", ["Tony Caos"], function(err, data) {
         if (err) {
             throw err;
         }
