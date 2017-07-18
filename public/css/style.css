@@ -281,6 +281,5 @@ h4{
 }
 @media (max-width:1200px) and (min-width:376px){
   #username, #email, #image{
-    width: 60%;
   }
 }
