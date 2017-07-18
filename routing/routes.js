@@ -25,6 +25,19 @@ module.exports = function(app) {
           if(err) throw err;
         });
       });
+// post beers
+      app.post("/api/beers", function(req, res) {
+        console.log("beerInfo "+ req.body);
+        const { beername, user } = req.body;
+
+        var newBeer = {
+              beername: beername,
+              user: user,
+          }
+          connection.query("INSERT INTO beers (beername, user) VALUES (?, ?)", [newBeer.beername, newBeer.user], function(err, res) {
+            if(err) throw err;
+          });
+        });
 // get users info from database
     app.get("/api/userdata", function(req, res) {
     connection.query("SELECT * FROM users WHERE username=?", ["Anton Chigurh"], function(err, data) {
@@ -37,5 +50,18 @@ module.exports = function(app) {
 
         res.json(data);
     });
+});
+
+app.get("/api/beers", function(req, res) {
+connection.query("SELECT * FROM beers WHERE user=?", [1], function(err, data) {
+    if (err) {
+        throw err;
+    }
+    else {
+        console.log(data);
+    }
+
+    res.json(data);
+});
 });
   }
