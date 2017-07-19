@@ -1,5 +1,9 @@
 // post from DOM
 $(document).ready(function() {
+  function imageFunction(){
+    alert("huyuyuguyg");
+    $(this).replaceWith( "<img src='/images/colored.png'>" );
+  }
     $('.beer_search').on('click', function() {
         event.preventDefault();
         var clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
@@ -22,7 +26,7 @@ $(document).ready(function() {
                       var beerCaption = $("<div class='caption'>");
                       var beerImage = $("<img>");
                       var btnImgDiv = $("<div class='btnImgDiv'>");
-                      var beerBtn = $("<img class='starButton'  onclick='imageFunction()'>");
+                      var beerBtn = $("<img class='starButton'  onClick='imageFunction()'>");
                       beerBtn.attr("src", "/images/pint.png");
                       beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);
                       beerImage.attr("src", result.response.beers.items[i].beer.beer_label);
@@ -52,10 +56,7 @@ $(document).ready(function() {
                 displayBeers();
           }});
     });
-      function imageFunction(){
 
-        $(this).replaceWith( "<img src='/images/colored.png'>" );
-      }
 
 
 
