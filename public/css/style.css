@@ -5,12 +5,22 @@ h1{
  h2 {
    font-family: 'Shrikhand', cursive;
    letter-spacing: 2px;
-   font-size: 35px;
+   font-size: 42px;
    margin-bottom: 15px !important;
  }
  h4{
-   font-size: 30px;
+   font-size: 34px;
    margin-top: 0px !important;
+ }
+ .welcome{
+   color: #fff;
+   -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: black;
+   margin-top: -1px;
+ }
+ .drink{
+   color: #000;
+   font-style: italic;
  }
  h4.subhead{
    font-size: 20px;
@@ -36,17 +46,17 @@ h1{
   height: 100px;
 }
 .beerDiv{
-  width: 431px;
+  width: 30%;
   float:left;
   padding: 25px;
-  margin-right: 6px;
-  margin-left: 5px;
+  margin-right: 15px;
+  margin-left: 25px;
   min-height: 500px;
   max-height: 500px;
   border: solid 3px #030D40;
 }
 .brewDiv{
-  width: 32.5%;
+  width: 30%;
   float:left;
   padding: 25px;
   margin-right: 6px;
@@ -59,9 +69,12 @@ h1{
 .beerDiv:nth-child(4){
   clear: both;
 }
+.beer_search{
+  width: 120px;
+}
 .productDescription{
   font-size: 1em !important;
-  overflow-y: scroll;
+  overflow-x: hidden;
   height: 100px;
   border: none;
 }
@@ -133,11 +146,11 @@ footer ul {
   margin: 0 auto;
 }
 .nolink{
-  background-color: #030D40;
+  /*background-color: #030D40;*/
   color: white;
   text-decoration: none !important;
   height: 800px;
-
+  background-image: url("/images/beer.png");
 }
 .nolink h1 a{
   text-decoration: none;
@@ -160,6 +173,24 @@ h4{
 }
 .moveOver{
   margin-left: 40%;
+}
+.starButton{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  float: right;
+  clear: both;
+}
+.smallText{
+  font-size: 12px;
+  width: 70px;
+  right: 0px;
+  bottom: 0px;
+  position: absolute;
+}
+.btnImgDiv{
+  height: 85px;
+  position: relative;
 }
 /* Iphone 5*/
 @media (max-width:375px) and (min-width:320px) {

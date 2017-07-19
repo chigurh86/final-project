@@ -9,7 +9,7 @@ $(document).ready(function() {
         var searchBeer = "search/beer?";
         var baseUrl = "https://api.untappd.com/v4/";
         var thebeer = $('.theBeer').val();
-        console.log("Here"+thebeer)
+        // console.log("Here"+thebeer)
           $.ajax({url: baseUrl + searchBeer + query + thebeer + clientId + clientSecret, success: function(result){
               // console.log("ajax " + JSON.stringify(result))
               function displayBeers(){
@@ -17,10 +17,13 @@ $(document).ready(function() {
                 // console.log(JSON.stringify(result.response.beers.items));
                   // console.log("the count " + result.response.beers);
                     for (var i = 0; i < result.response.beers.count; i++) {
-                      console.log("the name" + result.response.beers.items[i].beer.beer_name)
+                      // console.log("the name" + result.response.beers.items[i].beer.beer_name)
                       var beerDiv = $("<div class ='productHolder thumbnail beerDiv'>");
                       var beerCaption = $("<div class='caption'>");
                       var beerImage = $("<img>");
+                      var btnImgDiv = $("<div class='btnImgDiv'>");
+                      var beerBtn = $("<img class='starButton'  onclick='imageFunction()'>");
+                      beerBtn.attr("src", "/images/pint.png");
                       beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);
                       beerImage.attr("src", result.response.beers.items[i].beer.beer_label);
                       beerImage.addClass('beerImage');
@@ -29,13 +32,19 @@ $(document).ready(function() {
                       var abv = result.response.beers.items[i].beer.beer_abv;
                       var beerStyle = result.response.beers.items[i].beer.beer_style;
                       // // display to DOM
+                      btnImgDiv.append(beerBtn);
+                      btnImgDiv.append("<p class='smallText'>favorite it?</p>");
                       beerCaption.append("<h3>" + name + "</h3>");
                       beerCaption.append("<div class ='descDiv'>" + "<p class='productDescription'>" + desc + "</p>" + "</div");
                       beerCaption.append("<div class ='abvDiv'>" + "<p class='abv'>" + "ABV: " + abv + "</p>" + "</div");
                       beerCaption.append("<div class ='beerStyleDiv'>" + "<p class='beerStyle'>" + "Beer Style: " + beerStyle + "</p>" + "</div");
+                      beerCaption.append(btnImgDiv);
+
+
                       // // building thumbnail
                       beerDiv.append(beerImage);
                       beerDiv.append(beerCaption);
+                      // beerDiv.append(beerBtn);
                       $('#display').append(beerDiv);
                     }
 
@@ -43,4 +52,11 @@ $(document).ready(function() {
                 displayBeers();
           }});
     });
+      function imageFunction(){
+
+        $(this).replaceWith( "<img src='/images/colored.png'>" );
+      }
+
+
+
 });
