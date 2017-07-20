@@ -38,6 +38,7 @@ h1{
  #image{
    height: 45px;
  }
+
  #submitPerson, #resetPerson{
    margin-top: 15px;
    width: 200px;
@@ -198,18 +199,28 @@ h4{
   margin-left: 40%;
 }
 .starButton{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
   float: right;
   clear: both;
+  background-image: url('/images/pint.png');
+  background-size: contain;
 }
+/*.starButton:hover{
+  background-image: url('/images/colored.png');
+}*/
+.starButton:active{
+  background-image: url('/images/colored.png');
+}
+
 .smallText{
   font-size: 12px;
   width: 70px;
   right: 0px;
-  bottom: 0px;
+  bottom: 13px;
   position: absolute;
+  font-style: italic;
 }
 .btnImgDiv{
   height: 85px;
