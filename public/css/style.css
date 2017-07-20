@@ -22,6 +22,12 @@ h1{
  td p{
    border-bottom: solid 1px #DDDDDD;
  }
+ tbody.topt{
+   width: 400px !important;
+ }
+ table{
+   width: 95% !important;
+ }
  .welcome{
    color: #fff;
    -webkit-text-stroke-width: .5px;

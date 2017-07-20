@@ -52,16 +52,41 @@ module.exports = function(app) {
     });
 });
 
-app.get("/api/beers", function(req, res) {
-connection.query("SELECT * FROM beers WHERE user=?", [1], function(err, data) {
-    if (err) {
-        throw err;
-    }
-    else {
-        console.log(data);
-    }
+    app.get("/api/beers", function(req, res) {
+    connection.query("SELECT * FROM beers WHERE user=?", [1], function(err, data) {
+        if (err) {
+            throw err;
+        }
+        else {
+            console.log(data);
+        }
 
-    res.json(data);
-});
-});
+        res.json(data);
+        });
+    });
+    app.post("/api/favorites", function(req, res) {
+      console.log("beerInfo "+ req.body);
+      const { beername, username } = req.body;
+
+      var newBeer = {
+            beername: beername,
+            user: user,
+        }
+        connection.query("INSERT INTO favorites (beername, username) VALUES (?, ?)", [newBeer.beername, newBeer.username], function(err, res) {
+          if(err) throw err;
+        });
+      });
+
+      app.get("/api/favorites", function(req, res) {
+        connection.query("SELECT * FROM favorites WHERE username=?", [1], function(err, data) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(data);
+            }
+
+            res.json(data);
+            });
+        });
   }

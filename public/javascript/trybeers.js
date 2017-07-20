@@ -20,7 +20,7 @@
                 console.log("it went over "+newCount);
               }
                   for (var i = rando; i < newCount; i++) {
-                    // console.log("the name" + result.response.macro.items[i].beer.beer_name)
+                    // console.log("the name" + JSON.stringify(result));
                     var beerDiv = $("<div id='beerTime'  class ='productHolder thumbnail hero-feature beerDiv'>");
                     var beerCaption = $("<div class='caption'>");
                     var beerImage = $("<img>");
@@ -50,20 +50,34 @@
                     beerImage.attr("alt", result.response.macro.items[i].beer.beer_name);
                     beerImage.attr("src", result.response.macro.items[i].beer.beer_label);
                     beerImage.addClass('beerImage');
+                    // beer button
+                    var beerBtn = $("<img id='beerButton' class='starButton'>");
+                    beerBtn.attr("src", "/images/pint.png");
+                    beerBtn.attr("onClick", "this.src = './images/colored.png'");
+                    beerBtn.attr("data-button",result.response.macro.items[i].beer.beer_name);
+                    //
+                    var btnImgDiv = $("<div class='btnImgDiv'>");
+                    btnImgDiv.append(beerBtn);
+                    btnImgDiv.append("<p class='smallText'>favorite it?</p>");
                     var name = result.response.macro.items[i].beer.beer_name;
                     // var desc = result.response.macro.items[i].beer.beer_description;
                     var abv = result.response.macro.items[i].beer.beer_abv;
                     var beerStyle = result.response.macro.items[i].beer.beer_style;
+                    var brewed = result.response.macro.items[i].brewery.brewery_name;
                   //   // // display to DOM
                     beerCaption.append("<h3>" + name + "</h3>");
                     // beerCaption.append("<div class ='descDiv'>" + "<p class='productDescription'>" + desc + "</p>" + "</div");
                     beerCaption.append("<div class ='abvDiv'>" + "<p class='abv'>" + "ABV: " + abv + "</p>" + "</div");
                     beerCaption.append("<div class ='beerStyleDiv'>" + "<p class='beerStyle'>" + "Beer Style: " + beerStyle + "</p>" + "</div");
+                    beerCaption.append("<div class ='brewingDiv'>" + "<p class='brew'>" + "Brewery: " + brewed + "</p>" + "</div");
+
                   //   // // building thumbnail
                     beerDiv.append(beerImage);
                     beerDiv.append(beerCaption);
                     beerDiv.append(drinkBtn);
                     beerDiv.append(passBtn);
+                    beerDiv.append(btnImgDiv);
+
                     $('#displayArea').append(beerDiv);
                   }
         }});

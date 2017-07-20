@@ -14,6 +14,23 @@
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <script type="text/javascript">
+      function saveBeer(){
+        var beername = $(this).attr("data-button");
+        console.log("thebeerman: "+JSON.stringify(beername));
+        var favObject = {
+            beername: beername,
+            username:1
+        };
+        // $.post("/api/favorites", favObject)
+        //     .done(function(data) {
+        //         console.log(data);
+        //     })
+        //     .fail(function(error) {
+        //         console.log("THIS FAILED");
+        //     });
+      }
+    </script>
 </head>
 <body>
     <!-- Navigation -->

@@ -12,7 +12,7 @@ $.get("/api/userdata", function(response) {
 
 });
 $.get("/api/beers", function(response) {
-  console.log("The res: "+ response);
+  // console.log("The res: "+ response);
   var tableRow = $("<tr>");
   var tableDiv = $("<td>");
   var tableDiv2 = $("<td>");
@@ -36,6 +36,33 @@ $.get("/api/beers", function(response) {
     $(tableRow).append(tableDiv);
     $(tableRow).append(tableDiv2);
     $(tableRow).append(tableDiv3);
-    $("tbody").append(tableRow);
+    $("tbody.topt").append(tableRow);
   }
 });
+$.get("/api/favorites", function(response) {
+    var tableR = $("<tr>");
+    var tableD = $("<td>");
+    var tableD2 = $("<td>");
+    var tableD3 = $("<td>");
+    for (var i = 0; i < response.length; i++) {
+      clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
+      clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
+      query = "q="
+      url = "https://api.untappd.com/v4/";
+      searchBeer = "search/beer?";
+      baseUrl = "https://api.untappd.com/v4/";
+      var favbeer = response[i].beername;
+      tableD.append("<p>" + favbeer + "</p>");
+        $.ajax({url: baseUrl + searchBeer + query + favbeer + clientId + clientSecret, success: function(result){
+            var favStyle = result.response.beers.items[0].beer.beer_style;
+            var favbrewery = result.response.beers.items[0].brewery.brewery_name;
+            // console.log("result "+JSON.stringify(result));
+            tableD2.append("<p>" + favStyle + "</p>");
+            tableD3.append("<p>" + favbrewery + "</p>");
+        }});
+      $(tableR).append(tableD);
+      $(tableR).append(tableD2);
+      $(tableR).append(tableD3);
+      $("tbody.bottomt").append(tableR);
+    }
+  });

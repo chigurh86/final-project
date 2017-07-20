@@ -26,21 +26,25 @@ $(document).ready(function() {
                       var btnImgDiv = $("<div class='btnImgDiv'>");
                       var beerBtn = $("<img id='beerButton' class='starButton'>");
                       beerBtn.attr("src", "/images/pint.png");
-                      beerBtn.attr("onClick", "this.src = './images/colored.png'");
+                      beerBtn.attr("onClick", "this.src = './images/colored.png'; saveBeer()");
+                      beerBtn.attr("data-button",result.response.beers.items[i].beer.beer_name);
+                      // beerBtn.attr("onClick", "saveBeer()");
                       beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);
                       beerImage.attr("src", result.response.beers.items[i].beer.beer_label);
                       beerImage.addClass('beerImage');
                       var name = result.response.beers.items[i].beer.beer_name;
+                      var brewery = result.response.beers.items[1].brewery.brewery_name;
                       var desc = result.response.beers.items[i].beer.beer_description;
                       var abv = result.response.beers.items[i].beer.beer_abv;
                       var beerStyle = result.response.beers.items[i].beer.beer_style;
                       // // display to DOM
                       btnImgDiv.append(beerBtn);
                       btnImgDiv.append("<p class='smallText'>favorite it?</p>");
-                      beerCaption.append("<h3>" + name + "</h3>");
+                      beerCaption.append("<h3 id='beer' class='bname'>" + name + "</h3>");
                       beerCaption.append("<div class ='descDiv'>" + "<p class='productDescription'>" + desc + "</p>" + "</div");
                       beerCaption.append("<div class ='abvDiv'>" + "<p class='abv'>" + "ABV: " + abv + "</p>" + "</div");
                       beerCaption.append("<div class ='beerStyleDiv'>" + "<p class='beerStyle'>" + "Beer Style: " + beerStyle + "</p>" + "</div");
+                      beerCaption.append("<div class ='BreweryDiv'>" + "<p class='Brewery'>" + "Brewery: " +brewery+ "</p>" + "</div")
                       beerCaption.append(btnImgDiv);
 
 
@@ -55,8 +59,4 @@ $(document).ready(function() {
                 displayBeers();
           }});
     });
-      function newImage(){
-        alert("hi");
-      }
-
 });
