@@ -14,7 +14,9 @@ app.use(express.static(`${__dirname}/public`));
 
 
  // connection;
-var JAWSDB_URL = "mysql://a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/kl2bqalkkfs09ia0"
+var JAWSDB_URL = "mysql://kl2bqalkkfs09ia0:j5i2qsutbltuxx30@a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hsgta5zpyc9c9ccp"
+
+
 
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
