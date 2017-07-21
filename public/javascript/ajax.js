@@ -24,9 +24,10 @@ $(document).ready(function() {
                       var beerCaption = $("<div class='caption'>");
                       var beerImage = $("<img>");
                       var btnImgDiv = $("<div class='btnImgDiv'>");
-                      var beerBtn = $("<img id='beerButton' class='starButton'>");
+                      var beerBtn = $("<img role='button' id='beerButton' class='starButton'>");
                       beerBtn.attr("src", "/images/pint.png");
-                      beerBtn.attr("onClick", "this.src = './images/colored.png'; saveBeer()");
+                      beerBtn.attr("onclick", "this.src = './images/colored.png'; saveBeer()");
+                      beerBtn.attr("value", result.response.beers.items[i].beer.beer_name);
                       beerBtn.attr("data-button",result.response.beers.items[i].beer.beer_name);
                       // beerBtn.attr("onClick", "saveBeer()");
                       beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);

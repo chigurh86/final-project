@@ -14,23 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
-    <script type="text/javascript">
-      function saveBeer(){
-        var beername = $(this).attr("data-button");
-        console.log("thebeerman: "+JSON.stringify(beername));
-        var favObject = {
-            beername: beername,
-            username:1
-        };
-        // $.post("/api/favorites", favObject)
-        //     .done(function(data) {
-        //         console.log(data);
-        //     })
-        //     .fail(function(error) {
-        //         console.log("THIS FAILED");
-        //     });
-      }
-    </script>
+
 </head>
 <body>
     <!-- Navigation -->
@@ -92,6 +76,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./javascript/ajax.js"></script>
-
+    <script type="text/javascript">
+      function saveBeer(){
+        var beername = $(this).val();
+        console.log("thebeerman: "+(beername.data));
+        var favObject = {
+            beername: beername,
+            username:1
+        };
+      }
+    </script>
 </body>
 </html>
