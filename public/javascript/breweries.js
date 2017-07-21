@@ -25,6 +25,15 @@ $(document).ready(function() {
                           var brewDescription = res.response.brewery.brewery_description;
                           var beerCount = res.response.brewery.beer_count;
                           var name = res.response.brewery.brewery_name;
+                          // beer button
+                          var beerBtn = $("<img id='brewbeerButton' class='brewstarButton'>");
+                          beerBtn.attr("src", "/images/pint.png");
+                          beerBtn.attr("onClick", "this.src = './images/colored.png'");
+                          beerBtn.attr("data-button",res.response.brewery.brewery_name);
+                          //
+                          var btnImgDiv = $("<div class='btnImgDiv'>");
+                          btnImgDiv.append(beerBtn);
+                          btnImgDiv.append("<p class='smallText'>favorite it?</p>");
                           brewImage.attr("alt", res.response.brewery.brewery_name);
                           brewImage.attr("src", res.response.brewery.brewery_label);
                           brewImage.addClass('brewImage');
@@ -34,6 +43,7 @@ $(document).ready(function() {
                           // // // building thumbnail
                           brewDiv.append(brewImage);
                           brewDiv.append(brewCaption);
+                          brewDiv.append(btnImgDiv);
                           $('#displayBrews').append(brewDiv);
                         }});
                     }

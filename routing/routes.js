@@ -38,6 +38,33 @@ module.exports = function(app) {
             if(err) throw err;
           });
         });
+// post breweries
+      app.post("/api/breweries", function(req, res) {
+        console.log("brewinfo "+ req.body);
+        const { brewery, user } = req.body;
+
+        var newBrew = {
+              brewery: brewery,
+              theuser: user,
+          }
+          connection.query("INSERT INTO breweries (brewery, theuser) VALUES (?, ?)", [newBrew.brewery, newBrew.theuser], function(err, res) {
+            if(err) throw err;
+          });
+        });
+
+// get breweries
+      app.get("/api/breweries", function(req, res) {
+        connection.query("SELECT * FROM breweries WHERE theuser=?", [1], function(err, data) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(data);
+            }
+
+            res.json(data);
+            });
+        });
 // get users info from database
     app.get("/api/userdata", function(req, res) {
     connection.query("SELECT * FROM users WHERE username=?", ["Tony Caos"], function(err, data) {

@@ -22,17 +22,30 @@ h1{
  td p{
    border-bottom: solid 1px #DDDDDD;
  }
- tbody.topt{
-   width: 400px !important;
- }
+ .table-responsive{
+   overflow-y: scroll;
+   height: 190px;
+}
  table{
    width: 95% !important;
+   overflow-y: scroll;
  }
  .welcome{
    color: #fff;
    -webkit-text-stroke-width: .5px;
    -webkit-text-stroke-color: black;
    margin-top: -1px;
+ }
+ .small-header{
+   width: 300px;
+   padding-bottom: 10px;
+ }
+ .amount{
+   font-size: 15px;
+   border-radius: 10px;
+   color: white;
+   background-color: #030D40;
+   padding: 5px 10px;
  }
  .drink{
    color: #000;
@@ -213,11 +226,14 @@ h4{
   background-image: url('/images/pint.png');
   background-size: contain;
 }
-/*.starButton:hover{
-  background-image: url('/images/colored.png');
-}*/
-.starButton:active{
-  background-image: url('/images/colored.png');
+.brewstarButton{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  float: right;
+  clear: both;
+  background-image: url('/images/pint.png');
+  background-size: contain;
 }
 
 .smallText{

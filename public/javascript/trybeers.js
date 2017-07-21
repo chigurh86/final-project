@@ -5,9 +5,6 @@
       var url = "https://api.untappd.com/v4/";
       var searchBeer = "beer/trending?";
       var baseUrl = "https://api.untappd.com/v4/";
-
-
-
         $.ajax({url: baseUrl + searchBeer + clientId + clientSecret, success: function(result){
               $('#displayArea').empty();
               var theCount = result.response.macro.count;
@@ -17,7 +14,6 @@
               if (newCount > theCount) {
                 newCount = rando;
                 rando = rando - 3;
-                console.log("it went over "+newCount);
               }
                   for (var i = rando; i < newCount; i++) {
                     // console.log("the name" + JSON.stringify(result));

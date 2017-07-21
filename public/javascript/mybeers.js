@@ -25,6 +25,7 @@ $.get("/api/beers", function(response) {
     var searchBeer = "search/beer?";
     var baseUrl = "https://api.untappd.com/v4/";
     var thebeer = response[i].beername;
+    var howManybeer = "<span class='amount'>" + response.length + " Beers</span>";
     tableDiv.append("<p>" + thebeer + "</p>");
       $.ajax({url: baseUrl + searchBeer + query + thebeer + clientId + clientSecret, success: function(result){
           var beerStyle = result.response.beers.items[0].beer.beer_style;
@@ -38,6 +39,7 @@ $.get("/api/beers", function(response) {
     $(tableRow).append(tableDiv3);
     $("tbody.topt").append(tableRow);
   }
+    $("#howMany1").append(howManybeer);
 });
 $.get("/api/favorites", function(response) {
     var tableR = $("<tr>");
@@ -52,6 +54,7 @@ $.get("/api/favorites", function(response) {
       searchBeer = "search/beer?";
       baseUrl = "https://api.untappd.com/v4/";
       var favbeer = response[i].beername;
+      var howMany = "<span class='amount'>" + response.length + " Beers</span>";
       tableD.append("<p>" + favbeer + "</p>");
         $.ajax({url: baseUrl + searchBeer + query + favbeer + clientId + clientSecret, success: function(result){
             var favStyle = result.response.beers.items[0].beer.beer_style;
@@ -65,4 +68,35 @@ $.get("/api/favorites", function(response) {
       $(tableR).append(tableD3);
       $("tbody.bottomt").append(tableR);
     }
+      $("#howMany").append(howMany);
   });
+
+  $.get("/api/breweries", function(response) {
+      var tableRB = $("<tr>");
+      var tableDB = $("<td>");
+      var tableD2B = $("<td>");
+      var tableD3B = $("<td>");
+      for (var i = 0; i < response.length; i++) {
+        // clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
+        // clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
+        // query = "q="
+        // url = "https://api.untappd.com/v4/";
+        // searchBeer = "search/beer?";
+        // baseUrl = "https://api.untappd.com/v4/";
+        var favbrew = response[i].brewery;
+        var howManybrew = "<span class='amount'>" + response.length + " Breweries</span>";
+        tableDB.append("<p>" + favbrew + "</p>");
+          // $.ajax({url: baseUrl + searchBeer + query + favbeer + clientId + clientSecret, success: function(result){
+          //     var favStyle = result.response.beers.items[0].beer.beer_style;
+          //     var favbrewery = result.response.beers.items[0].brewery.brewery_name;
+          //     // console.log("result "+JSON.stringify(result));
+          //     tableD2.append("<p>" + favStyle + "</p>");
+          //     tableD3.append("<p>" + favbrewery + "</p>");
+          // }});
+        $(tableRB).append(tableDB);
+        $(tableRB).append(tableD2B);
+        $(tableRB).append(tableD3B);
+        $("tbody.brewt").append(tableRB);
+      }
+        $("#brewMany").append(howManybrew);
+    });

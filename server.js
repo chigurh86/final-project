@@ -14,11 +14,11 @@ app.use(express.static(`${__dirname}/public`));
 
 
  // connection;
-// var JAWSDB_URL = ""
-//
-// if (process.env.JAWSDB_URL) {
-//     connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
+var JAWSDB_URL = "mysql://a07yd3a6okcidwap.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/kl2bqalkkfs09ia0"
+
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
 var connection = mysql.createConnection({
         host: "localhost",
         port: 3306,
@@ -26,7 +26,7 @@ var connection = mysql.createConnection({
         password: "",
         database: "drinkdabeer_db"
     });
-// };
+};
 // exports
 module.exports = connection;
 // module.exports.client;
