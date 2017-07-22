@@ -77,22 +77,28 @@ $.get("/api/favorites", function(response) {
       var tableD2B = $("<td>");
       var tableD3B = $("<td>");
       for (var i = 0; i < response.length; i++) {
-        // clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
-        // clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
-        // query = "q="
-        // url = "https://api.untappd.com/v4/";
-        // searchBeer = "search/beer?";
-        // baseUrl = "https://api.untappd.com/v4/";
+        clientId = "&client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
+        clientSecret = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
+        query = "q="
+        url = "https://api.untappd.com/v4/";
+        searchBeer = "search/beer?";
+        baseUrl = "https://api.untappd.com/v4/";
         var favbrew = response[i].brewery;
         var howManybrew = "<span class='amount'>" + response.length + " Breweries</span>";
-        tableDB.append("<p>" + favbrew + "</p>");
-          // $.ajax({url: baseUrl + searchBeer + query + favbeer + clientId + clientSecret, success: function(result){
-          //     var favStyle = result.response.beers.items[0].beer.beer_style;
-          //     var favbrewery = result.response.beers.items[0].brewery.brewery_name;
-          //     // console.log("result "+JSON.stringify(result));
-          //     tableD2.append("<p>" + favStyle + "</p>");
-          //     tableD3.append("<p>" + favbrewery + "</p>");
-          // }});
+          $.ajax({url: baseUrl + searchBeer + query + favbrew + clientId + clientSecret, success: function(result){
+              var location = result.response.beers.items[0].brewery.location.brewery_city + ", " + result.response.beers.items[0].brewery.location.brewery_state;
+              var favbrewery = result.response.beers.items[0].brewery.brewery_name;
+              var active = result.response.beers.items[0].brewery.brewery_active;
+              if (active===1) {
+                  active = "Yes"
+              }
+              else {
+                active = "No"
+              }
+              tableD3B.append("<p>" + active + "</p>");
+              tableD2B.append("<p>" + location + "</p>");
+              tableDB.append("<p>" + favbrewery + "</p>");
+          }});
         $(tableRB).append(tableDB);
         $(tableRB).append(tableD2B);
         $(tableRB).append(tableD3B);
