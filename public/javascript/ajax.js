@@ -26,7 +26,7 @@ $(document).ready(function() {
                       var btnImgDiv = $("<div class='btnImgDiv'>");
                       var beerBtn = $("<img role='button' id='beerButton' class='starButton'>");
                       beerBtn.attr("src", "/images/pint.png");
-                      beerBtn.attr("onclick", "this.src = './images/colored.png'; saveBeer(this)");
+                      beerBtn.attr("onclick", "this.src = './images/colored.png'; saveBeer()");
                       beerBtn.attr("value", result.response.beers.items[i].beer.beer_name);
                       beerBtn.attr("data-button",result.response.beers.items[i].beer.beer_name);
                       // beerBtn.attr("onClick", "saveBeer()");
