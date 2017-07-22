@@ -29,7 +29,6 @@ $(document).ready(function() {
                       beerBtn.attr("onclick", "this.src = './images/colored.png'; saveBeer()");
                       beerBtn.attr("value", result.response.beers.items[i].beer.beer_name);
                       beerBtn.attr("data-button",result.response.beers.items[i].beer.beer_name);
-                      // beerBtn.attr("onClick", "saveBeer()");
                       beerImage.attr("alt", result.response.beers.items[i].beer.beer_name);
                       beerImage.attr("src", result.response.beers.items[i].beer.beer_label);
                       beerImage.addClass('beerImage');

@@ -20,7 +20,7 @@
                     var beerDiv = $("<div id='beerTime'  class ='productHolder thumbnail hero-feature beerDiv'>");
                     var beerCaption = $("<div class='caption'>");
                     var beerImage = $("<img>");
-                    var drinkBtn = $("<button class='btn-success replace'>"+"Drink it"+"</button>");
+                    var drinkBtn = $("<button class='btn-default colorbtn replace'>"+"Drink it"+"</button>");
                     drinkBtn.attr("data-button", result.response.macro.items[i].beer.beer_name);
                     drinkBtn.on('click', function(){
                      var beername = $(this).attr("data-button");
@@ -38,7 +38,7 @@
                              console.log("THIS FAILED");
                          });
                     });
-                    var passBtn = $("<button class='btn-default'>"+"Eww Gross"+"</button>");
+                    var passBtn = $("<button class='btn-default colorbtn'>"+"Eww Gross"+"</button>");
                     passBtn.on('click', function(){
                      $(this).parents(".productHolder").hide();
                      replaceBeer();
@@ -91,7 +91,7 @@
                         var beerDiv = $("<div id='beerTime'  class ='productHolder thumbnail hero-feature beerDiv'>");
                         var beerCaption = $("<div class='caption'>");
                         var beerImage = $("<img>");
-                        var drinkBtn = $("<button class='btn-success replace'>"+"Drink it"+"</button>");
+                        var drinkBtn = $("<button class='btn-default colorbtn replace'>"+"Drink it"+"</button>");
                         drinkBtn.attr("data-button", result.response.macro.items[i].beer.beer_name);
                         drinkBtn.on('click', function(){
                            var beername = $(this).attr("data-button");
@@ -109,7 +109,7 @@
                                    console.log("THIS FAILED");
                                });
                         });
-                        var passBtn = $("<button class='btn-default'>"+"Eww Gross"+"</button>");
+                        var passBtn = $("<button class='btn-default colorbtn'>"+"Eww Gross"+"</button>");
                         passBtn.on('click', function(){
                            $(this).parents(".productHolder").hide();
                            replaceBeer();
