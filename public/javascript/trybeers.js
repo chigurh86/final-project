@@ -117,6 +117,15 @@
                         beerImage.attr("alt", result.response.macro.items[i].beer.beer_name);
                         beerImage.attr("src", result.response.macro.items[i].beer.beer_label);
                         beerImage.addClass('beerImage');
+                        // beer button
+                        var beerBtn = $("<img id='beerButton' class='starButton'>");
+                        beerBtn.attr("src", "/images/pint.png");
+                        beerBtn.attr("onClick", "this.src = './images/colored.png'");
+                        beerBtn.attr("data-button",result.response.macro.items[i].beer.beer_name);
+                        //
+                        var btnImgDiv = $("<div class='btnImgDiv'>");
+                        btnImgDiv.append(beerBtn);
+                        btnImgDiv.append("<p class='smallText'>favorite it?</p>");
                         var name = result.response.macro.items[i].beer.beer_name;
                         // var desc = result.response.macro.items[i].beer.beer_description;
                         var abv = result.response.macro.items[i].beer.beer_abv;
@@ -131,6 +140,7 @@
                         beerDiv.append(beerCaption);
                         beerDiv.append(drinkBtn);
                         beerDiv.append(passBtn);
+                        beerDiv.append(btnImgDiv);
                         $('#displayArea').append(beerDiv);
                       }
             }});
