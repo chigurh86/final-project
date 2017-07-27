@@ -105,6 +105,7 @@ h1{
   min-height: 450px;
   max-height: 450px;
   border: solid 3px #030D40;
+  clear: right;
 }
 .brewDiv{
   width: 30%;
@@ -129,7 +130,7 @@ h1{
 .productDescription{
   font-size: 1em !important;
   overflow-x: hidden;
-  height: 100px;
+  height: 50px;
   border: none;
 }
 .brewDescription{
@@ -203,6 +204,9 @@ footer ul {
 .displayDiv{
   margin: 0 auto;
 }
+#displayArea{
+  height: 470px;
+}
 .blurbCaption{
   margin: 0 auto;
 }
@@ -239,7 +243,7 @@ h4{
   width: 40px;
   height: 40px;
   margin-right: 10px;
-  float: right;
+
   clear: both;
   background-image: url('/images/pint.png');
   background-size: contain;
@@ -264,7 +268,9 @@ h4{
 }
 .btnImgDiv{
   height: 85px;
+  width: 50px;
   position: relative;
+    float: right;
 }
 /* Iphone 5*/
 @media (max-width:375px) and (min-width:320px) {

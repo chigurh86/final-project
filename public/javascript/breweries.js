@@ -12,8 +12,6 @@ $(document).ready(function() {
                 $('#displayBrews').empty();
                   var items = result.response.brewery.items;
                     for (var i = 0; i < items.length; i++) {
-
-                      // var name = result.response.brewery.items[i].brewery.brewery_name;
                       var brewId = result.response.brewery.items[i].brewery.brewery_id;
                       var clientIdSecond = "?client_id=43D9E7E6E3B9C50C285014E7BE74DDCBE021FA00";
                       var clientSecretSecond = "&client_secret=E2DFC619E166E32349A9C8E784395C5702BEDCBB";
